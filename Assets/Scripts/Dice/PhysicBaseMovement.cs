@@ -37,7 +37,6 @@ namespace DefaultNamespace
         {
             if (col.collider.gameObject.CompareTag("Wall"))
             {
-                Debug.Log(col.contacts[0].normal);
                 _movementDirection = Vector2.Reflect(_movementDirection, col.contacts[0].normal);
             } 
         }
