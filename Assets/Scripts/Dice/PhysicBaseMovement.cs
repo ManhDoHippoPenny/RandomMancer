@@ -11,6 +11,10 @@ namespace DefaultNamespace
         [SerializeField] private float _speed;
         [SerializeField] private Vector2 _movementDirection;
         [SerializeField] private Vector2 speedBody;
+
+        public delegate void VelocityOnZero();
+
+        public VelocityOnZero _velocityOnZero;
         
         private void Awake()
         {
@@ -25,13 +29,12 @@ namespace DefaultNamespace
 
         private void Update()
         {
+            if (_body.velocity == Vector2.zero && speedBody != Vector2.zero)
+            {
+                _velocityOnZero?.Invoke();
+            }
             speedBody = _body.velocity;
         }
-
-        // private void FixedUpdate()
-        // {
-        //     _body.velocity = _movementDirection * _speed;
-        // }
 
         private void OnCollisionEnter2D(Collision2D col)
         {

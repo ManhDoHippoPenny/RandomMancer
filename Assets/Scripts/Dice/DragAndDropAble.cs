@@ -13,16 +13,21 @@ namespace DefaultNamespace
         private Vector2 _dir;
         private float _speed;
 
+        public Vector2 Direction => _dir;
+        public float Speed => _speed;
+
         public Camera _camera;
         private bool isDragging = false;
         private PhysicBaseMovement _movement;
         
+        public delegate void OnRelaseAction();
+
+        public OnRelaseAction onRelaseEvent;
         private bool isClickedOn()
         {
             Ray ray = _camera.ScreenPointToRay(curScreenPos);
             RaycastHit2D hit;
             hit = Physics2D.Raycast(ray.origin, ray.direction);
-            Debug.Log(hit.collider);
             return hit.transform == transform;
         }
 
@@ -51,15 +56,15 @@ namespace DefaultNamespace
             };
             press.canceled += _ =>
             {
-                if (isDragging == true)
+                if (isDragging)
                 {
                     isDragging = false;
-                    _movement.ApplyForce(_dir,_speed);
+                    onRelaseEvent?.Invoke();
+                    //_movement.ApplyForce(_dir,_speed);
                 }
             };
         }
-        
-        
+
         private IEnumerator Drag()
         {
             isDragging = true;
