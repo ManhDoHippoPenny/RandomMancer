@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using DefaultNamespace.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
@@ -8,39 +11,21 @@ namespace DefaultNamespace
     {
         private Rigidbody _body;
 
-        [SerializeField] private float maxRandomForceValue, startRollingForce;
-
-        private float forceX, forceY, forceZ;
-
-        public int diceFaceNum;
-
         private void Awake()
         {
-            Initialize();
-        }
-
-        private void Update()
-        {
-            if (_body != null)
-            {
-                RollDice();
-            }
-        }
-
-        private void RollDice()
-        {
-            _body.isKinematic = false;
-            
-            _body.AddForce(Vector3.up * startRollingForce);
-            _body.AddTorque(forceX,forceY,forceZ);
-        }
-
-        private void Initialize()
-        {
             _body = GetComponent<Rigidbody>();
-            _body.isKinematic = true;
-            transform.rotation = new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), 0);
-            
+        }
+
+        public void RollDice(float throwForce, float rollForce, int i)
+        {
+            var randomVariance = Random.Range(-1f, 1f);
+           // _body.AddForce(transform.forward * (throwForce + randomVariance), ForceMode.Impulse);
+
+            var randX = Random.Range(0f, 1f);
+            var randY = Random.Range(0f, 1f);
+            var randZ = Random.Range(0f, 1f);
+
+            _body.AddTorque(new Vector3(randX, randY, randZ) * (rollForce + randomVariance), ForceMode.Impulse);
         }
     }
 }

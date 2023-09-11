@@ -10,12 +10,14 @@ namespace DefaultNamespace
     {
         private PhysicBaseMovement _movement;
         private DragAndDropAble _dragAndDropAble;
+        private DiceRoll _diceRoll;
         [SerializeField] private List<TowerInfor> _faces;
         
         private void Awake()
         {
             _movement = GetComponent<PhysicBaseMovement>();
             _dragAndDropAble = GetComponent<DragAndDropAble>();
+            _diceRoll = GetComponent<DiceRoll>();
             _dragAndDropAble.onRelaseEvent += ApplyForceToDice;
             _movement._velocityOnZero += ChangeStateToSpawner;
         }
@@ -35,6 +37,7 @@ namespace DefaultNamespace
         private void ApplyForceToDice()
         {
             _movement.ApplyForce(_dragAndDropAble.Direction, _dragAndDropAble.Speed);
+            _diceRoll.RollDice(_dragAndDropAble.Speed, 1,0);
         }
     }
 }

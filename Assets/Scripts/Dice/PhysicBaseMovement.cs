@@ -3,14 +3,13 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class PhysicBaseMovement : MonoBehaviour
     {
-        private Rigidbody2D _body;
+        private Rigidbody _body;
         [SerializeField] private float multiply;
         [SerializeField] private float _speed;
         [SerializeField] private Vector2 _movementDirection;
-        [SerializeField] private Vector2 speedBody;
+        [SerializeField] private Vector3 speedBody;
 
         public delegate void VelocityOnZero();
 
@@ -18,7 +17,7 @@ namespace DefaultNamespace
         
         private void Awake()
         {
-            _body = GetComponent<Rigidbody2D>();
+            _body = GetComponent<Rigidbody>();
         }
 
         public void ApplyForce(Vector2 dir, float speed)
@@ -29,18 +28,19 @@ namespace DefaultNamespace
 
         private void Update()
         {
-            if (_body.velocity == Vector2.zero && speedBody != Vector2.zero)
+            if (_body.velocity == Vector3.zero && speedBody != Vector3.zero)
             {
                 _velocityOnZero?.Invoke();
             }
             speedBody = _body.velocity;
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (col.collider.gameObject.CompareTag("Wall"))
+            if (collision.collider.gameObject.CompareTag("Wall"))
             {
-                _movementDirection = Vector2.Reflect(_movementDirection, col.contacts[0].normal);
+                Vector2 reflect = Vector2.Reflect(_movementDirection, collision.contacts[0].normal);
+                _movementDirection = new Vector3(reflect.x,reflect.y,0);
             } 
         }
     }

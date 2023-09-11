@@ -26,8 +26,9 @@ namespace DefaultNamespace
         private bool isClickedOn()
         {
             Ray ray = _camera.ScreenPointToRay(curScreenPos);
-            RaycastHit2D hit;
-            hit = Physics2D.Raycast(ray.origin, ray.direction);
+            RaycastHit hit;
+            Physics.Raycast(ray.origin, ray.direction,out hit,15f);
+            Debug.Log(hit.transform);
             return hit.transform == transform;
         }
 

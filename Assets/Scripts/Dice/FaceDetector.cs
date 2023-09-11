@@ -1,26 +1,59 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DefaultNamespace
 {
     public class FaceDetector : MonoBehaviour
     {
-        private DiceRoll dice;
+        private Rigidbody _body;
+
+        private int _diceIndex = -1;
+
+        private bool _hasStoppedRolling;
+        private bool _delayFinished;
+        [SerializeField] private List<Transform> _faces;
+
+        public static UnityAction<int, int> OnDiceResult;
 
         private void Awake()
         {
-            dice = GetComponent<DiceRoll>();
+            _body = GetComponent<Rigidbody>();
         }
 
-        private void OnTriggerStay(Collider other)
+        private void Update()
         {
-            if (dice != null)
+            if (_delayFinished) return;
+
+            if (_hasStoppedRolling && _body.velocity.sqrMagnitude == 0f)
             {
-                if (dice.GetComponent<Rigidbody>().velocity == Vector3.zero)
+                _hasStoppedRolling = true;
+                
+            }
+        }
+
+        [ContextMenu("Get number on top face")]
+        private int GetNumberOnTopFace()
+        {
+            if (_faces == null) return -1;
+            var topFace = 0;
+            var lastYPosition = _faces[0].position.y;
+
+            for (int i = 0; i < _faces.Count; i++)
+            {
+                if (_faces[i].position.y > lastYPosition)
                 {
-                    dice.diceFaceNum = int.Parse(other.name);
+                    lastYPosition = _faces[i].position.y;
+                    topFace = i;
                 }
             }
+            
+            Debug.Log($"Dice result {topFace}");
+            
+            OnDiceResult?.Invoke(_diceIndex,topFace);
+            return topFace;
+
         }
     }
 }
