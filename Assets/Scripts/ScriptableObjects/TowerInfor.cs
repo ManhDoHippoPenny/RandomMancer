@@ -1,39 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using DefaultNamespace.Projectiles;
+using UnityEngine;
 
 namespace DefaultNamespace.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "TowerInformation", menuName = "Tower Information",order = 0)]
     public class TowerInfor : ScriptableObject
     {
-        [SerializeField] private string _name;
-        [SerializeField] private int _cost;
-        [SerializeField] private TowerSpeed _speed;
+        public string _name;
+        public int _cost;
+        public int _timeBtwAttack;
         [TextArea] [SerializeField] private string _description;
+        [SerializeField] private ProjectileDataSO _dataProjectile;
+        [SerializeField] private List<Vector3> _directionsToShoot;
 
         public string Name => _name;
         public int Cost => _cost;
 
-        public string Speed
-        {
-            get
-            {
-                switch (_speed)
-                {
-                    case TowerSpeed.FAST:
-                    {
-                        return "Fast";
-                    }
-                    default:
-                        return "Undefined";
-                }
-            }
-        }
-    }
-
-    public enum TowerSpeed
-    {
-        FAST,
-        SLOW,
-        MEDIUM,
+        public ProjectileDataSO _DataSo;
     }
 }

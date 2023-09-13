@@ -10,10 +10,10 @@ namespace DefaultNamespace
 
         private Vector3 curScreenPos;
 
-        private Vector2 _dir;
+        private Vector3 _dir;
         private float _speed;
 
-        public Vector2 Direction => _dir;
+        public Vector3 Direction => _dir;
         public float Speed => _speed;
 
         public Camera _camera;
@@ -28,7 +28,7 @@ namespace DefaultNamespace
             Ray ray = _camera.ScreenPointToRay(curScreenPos);
             RaycastHit hit;
             Physics.Raycast(ray.origin, ray.direction,out hit,15f);
-            Debug.Log(hit.transform);
+            //Debug.Log(hit.transform);
             return hit.transform == transform;
         }
 
@@ -76,20 +76,11 @@ namespace DefaultNamespace
             while (isDragging)
             {
                 Vector3 tempPos = WorldPos + offset;
-                // if (tempPos.x < 0 || tempPos.y < 0 || tempPos.x > _camera.rect.width || tempPos.y > _camera.rect.height)
-                // {
-                //     isDragging = false;
-                //     _movement.ApplyForce(_dir,_speed);
-                //     StopCoroutine(Drag());
-                // }
                 _dir = - transform.position + tempPos;
                 _speed = Mathf.Max(Vector2.Distance(transform.position, tempPos),15f);
                 transform.position = tempPos;
                 yield return null;
             }
-            
-            //drop
-            //GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
