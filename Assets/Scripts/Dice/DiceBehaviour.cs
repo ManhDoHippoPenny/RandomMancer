@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DefaultNamespace.ScriptableObjects;
+using Enemy;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,7 @@ namespace DefaultNamespace
         public void ChangeStateToSpawner()
         {
             _dragAndDropAble.onRelaseEvent -= ApplyForceToDice;
+            
             _dragAndDropAble.onRelaseEvent += SpawnTower;
         }
 
@@ -38,6 +40,15 @@ namespace DefaultNamespace
         {
             _movement.ApplyForce(_dragAndDropAble.Direction, _dragAndDropAble.Speed);
             _diceRoll.RollDice(_dragAndDropAble.Speed, 1,0);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log("Deal dame");
+                other.transform.GetComponent<EnemyHealth>().DealDamage(1);
+            }
         }
     }
 }
