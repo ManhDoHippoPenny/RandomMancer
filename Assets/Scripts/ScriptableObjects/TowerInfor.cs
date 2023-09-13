@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace.Projectiles;
+using UnityEngine;
 
 namespace DefaultNamespace.ScriptableObjects
 {
@@ -9,9 +10,12 @@ namespace DefaultNamespace.ScriptableObjects
         [SerializeField] private int _cost;
         [SerializeField] private TowerSpeed _speed;
         [TextArea] [SerializeField] private string _description;
+        [SerializeField] private ProjectileDataSO _dataProjectile;
 
         public string Name => _name;
         public int Cost => _cost;
+
+        public ProjectileDataSO _DataSo;
 
         public string Speed
         {

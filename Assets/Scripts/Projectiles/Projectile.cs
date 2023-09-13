@@ -14,6 +14,7 @@ namespace DefaultNamespace.Projectiles
 
         private Rigidbody _body;
         public float Damage { get; set; }
+        public ProjectileDataSO _data;
         
         public TowerProjectile _tower { get; set; }
 

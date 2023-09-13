@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DefaultNamespace.Projectiles
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "ProjectileData", menuName = "", order = 0)]
     public class ProjectileDataSO : ScriptableObject
     {
         [field: SerializeReference] public List<ComponentData> _componentData { get; private set; }

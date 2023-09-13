@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace DefaultNamespace.Projectiles
 {
+    [CustomEditor(typeof(ProjectileDataSO))]
     public class ProjectileDataSOEditor : Editor
     {
         private static List<Type> dataCompTypes = new List<Type>();

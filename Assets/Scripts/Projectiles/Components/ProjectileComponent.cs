@@ -16,6 +16,12 @@ namespace DefaultNamespace.Projectiles.Components
 
     public abstract class ProjectileComponent<T1> : ProjectileComponent where T1 : ComponentData.ComponentData
     {
-        
+        protected T1 _componentData;
+
+        public override void Init()
+        {
+            base.Init();
+            _componentData = _projectile._data.GetData<T1>();
+        }
     }
 }
