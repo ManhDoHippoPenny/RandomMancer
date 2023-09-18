@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace.Projectiles.Components.ComponentData
 {
+    [Serializable]
     public abstract class ComponentData
     {
         [SerializeField, HideInInspector] private string name;
@@ -23,7 +24,9 @@ namespace DefaultNamespace.Projectiles.Components.ComponentData
         {
           
         }
-     
-        public virtual void InitializeAttackData(){}
+
+        public virtual void InitializeAttackData()
+        {
+        }
     }
 }

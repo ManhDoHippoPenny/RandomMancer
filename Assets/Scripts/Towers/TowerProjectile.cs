@@ -16,7 +16,7 @@ namespace DefaultNamespace.Towers
         public float DelayPerShot { get; set; }
         protected ObjectPooler _pooler;
         protected float _nextAttackTime;
-        protected TowerBehaviour _tower;
+        public TowerBehaviour _tower;
         protected Projectile _currentProjectile;
 
         private void Start()
@@ -47,7 +47,6 @@ namespace DefaultNamespace.Towers
                     _currentProjectile = null;
                     FireProjectile(_tower.CurrentEnemyTarget);
                     _counter = delayBtwAttacks;
-                    Debug.Log("Fire");
                 }
             }
 

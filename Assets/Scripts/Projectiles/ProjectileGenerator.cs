@@ -45,7 +45,7 @@ namespace DefaultNamespace.Projectiles
                 }
                 
                 bulletComponent.Init();
-                
+
                 componentAddedToBullet.Add(bulletComponent);
 
             }

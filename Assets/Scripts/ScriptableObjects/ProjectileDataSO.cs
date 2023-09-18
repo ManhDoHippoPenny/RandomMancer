@@ -10,7 +10,7 @@ namespace DefaultNamespace.Projectiles
     public class ProjectileDataSO : ScriptableObject
     {
         [field: SerializeReference]
-        public List<ComponentData> _componentData { get; private set; } = new List<ComponentData>();
+        public List<ComponentData> _componentData { get; private set; }
 
         public T GetData<T>()
         {

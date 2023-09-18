@@ -44,6 +44,27 @@ namespace DefaultNamespace.Projectiles
                     }
                 }
             }
+            
+            // showForceUpdateButtons = EditorGUILayout.Foldout(showForceUpdateButtons, "Force Update Buttons");
+            //
+            // if (showForceUpdateButtons)
+            // {
+            //     if (GUILayout.Button("Force Update Component Names"))
+            //     {
+            //         foreach (var item in _dataSo._componentData)
+            //         {
+            //             item.SetComponentName();
+            //         }
+            //     }
+            //
+            //     if (GUILayout.Button("Force Update Attack Names"))
+            //     {
+            //         foreach (var item in _dataSo._componentData)
+            //         {
+            //             item.SetAttackDataNames();
+            //         }
+            //     }
+            // }
         }
 
         [DidReloadScripts]
