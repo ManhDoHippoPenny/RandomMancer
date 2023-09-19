@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DefaultNamespace.ScriptableObjects;
-using Enemy;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,8 +10,7 @@ namespace DefaultNamespace
         private PhysicBaseMovement _movement;
         private DragAndDropAble _dragAndDropAble;
         private DiceRoll _diceRoll;
-        [SerializeField] private List<TowerInfor> _faces;
-        
+
         private void Awake()
         {
             _movement = GetComponent<PhysicBaseMovement>();
@@ -47,7 +44,7 @@ namespace DefaultNamespace
             if (other.gameObject.CompareTag("Enemy"))
             {
                 Debug.Log("Deal dame");
-                other.transform.GetComponent<EnemyHealth>().DealDamage(1);
+                //other.transform.GetComponent<EnemyHealth>().DealDamage(1);
             }
         }
     }

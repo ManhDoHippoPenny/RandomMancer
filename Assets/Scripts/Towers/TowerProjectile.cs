@@ -42,7 +42,7 @@ namespace DefaultNamespace.Towers
                     _tower.CurrentEnemyTarget._enemyHealth.currentHealth > 0f)
                 {
                     _currentProjectile.transform.parent = null;
-                    _currentProjectile.GetComponent<ProjectileMovement>().SetEnemy(_tower.CurrentEnemyTarget);
+                    //_currentProjectile.GetComponent<ProjectileMovement>().SetEnemy(_tower.CurrentEnemyTarget);
                     _currentProjectile = null;
                     _counter = delayBtwAttacks;
                 }
@@ -57,7 +57,7 @@ namespace DefaultNamespace.Towers
             newInstance.transform.SetParent(projectileSpawnPosition);
             
             _currentProjectile = newInstance.GetComponent<Projectile>();
-            _currentProjectile._tower = this;
+            //_currentProjectile._tower = this;
             _currentProjectile.ResetProjectile();
             newInstance.SetActive(true);
         }

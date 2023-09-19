@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DefaultNamespace.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;

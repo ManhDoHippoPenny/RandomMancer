@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace.Projectiles.Components.ComponentData;
+using Projectiles;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;

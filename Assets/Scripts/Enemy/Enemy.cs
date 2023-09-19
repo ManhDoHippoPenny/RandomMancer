@@ -1,5 +1,4 @@
 ﻿using System;
-using DefaultNamespace;
 using DefaultNamespace.Waypoints;
 using UnityEngine;
 using UnityEngine.Events;

@@ -1,5 +1,5 @@
 ﻿using System;
-using DefaultNamespace.Towers;
+using Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +10,7 @@ namespace DefaultNamespace.Projectiles
         private Rigidbody _body;
         public ProjectileDataSO _data;
         
-        public TowerProjectile _tower { get; set; }
+        //public TowerProjectile _tower { get; set; }
         private void Awake()
         {
             _body = GetComponent<Rigidbody>();

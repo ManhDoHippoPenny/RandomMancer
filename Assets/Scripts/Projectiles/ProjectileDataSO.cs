@@ -4,7 +4,7 @@ using System.Linq;
 using DefaultNamespace.Projectiles.Components.ComponentData;
 using UnityEngine;
 
-namespace DefaultNamespace.Projectiles
+namespace Projectiles
 {
     [CreateAssetMenu(fileName = "ProjectileData", menuName = "", order = 0)]
     public class ProjectileDataSO : ScriptableObject
