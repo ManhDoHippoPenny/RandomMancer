@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Dart Monkey
   _cost: 170
-  _speed: 0
+  _timeBtwAttack: 2
   _description: 
+  _dataProjectile: {fileID: 0}
+  _directionsToShoot: []
+  _DataSo: {fileID: 0}

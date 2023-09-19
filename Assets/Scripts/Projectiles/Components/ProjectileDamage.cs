@@ -6,12 +6,13 @@ namespace DefaultNamespace.Projectiles.Components
 {
     public class ProjectileDamage : ProjectileComponent<DamageData>
     {
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collision)
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponent<Enemy.EnemyHealth>().DealDamage(_componentData.damage);
             }
         }
+        
     }
 }

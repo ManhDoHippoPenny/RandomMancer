@@ -21,17 +21,9 @@ namespace DefaultNamespace.Projectiles
             this._data = _data;
         }
 
-        public void Initialize()
-        {
-            foreach (var type in _data.GetAllDependencies())
-            {
-                
-            }
-        }
-        
         public void ResetProjectile()
         {
-            
+            GetComponent<ProjectileGenerator>().ResetProjectile();
         }
     }
 }

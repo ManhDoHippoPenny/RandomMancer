@@ -57,5 +57,15 @@ namespace DefaultNamespace.Projectiles
                 Destroy(bulletComponent);
             }
         }
+
+        public void ResetProjectile()
+        {
+            
+            foreach (var dependency in componentDependencies)
+            {
+                var bulletComponent = componentAddedToBullet.FirstOrDefault(component => component.GetType() == dependency);
+                bulletComponent.Init();
+            }
+        }
     }
 }

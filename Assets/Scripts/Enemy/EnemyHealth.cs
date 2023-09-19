@@ -34,7 +34,7 @@ namespace Enemy
         public void DealDamage(float damageReceive)
         {
             currentHealth -= damageReceive;
-            Debug.Log(currentHealth);
+            Debug.Log(currentHealth + "Health");
             if (currentHealth <= 0)
             {
                 currentHealth = 0;

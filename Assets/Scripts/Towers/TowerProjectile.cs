@@ -24,9 +24,8 @@ namespace DefaultNamespace.Towers
             _pooler = GetComponent<ObjectPooler>();
             _tower = GetComponent<TowerBehaviour>();
             delayBtwAttacks = _tower._towerInfor._timeBtwAttack;
-            
             DelayPerShot = delayBtwAttacks;
-            LoadProjectile();
+            //LoadProjectile();
         }
 
         private void Update()
@@ -37,15 +36,14 @@ namespace DefaultNamespace.Towers
             }
 
             _counter -= Time.deltaTime;
-            if (_counter <= 0)
+            if (_counter < 0)
             {
                 if (_tower.CurrentEnemyTarget != null && _currentProjectile != null &&
                     _tower.CurrentEnemyTarget._enemyHealth.currentHealth > 0f)
                 {
                     _currentProjectile.transform.parent = null;
-                    _currentProjectile._data.GetData<ProjectileMovement>().SetEnemy(_tower.CurrentEnemyTarget);
+                    _currentProjectile.GetComponent<ProjectileMovement>().SetEnemy(_tower.CurrentEnemyTarget);
                     _currentProjectile = null;
-                    FireProjectile(_tower.CurrentEnemyTarget);
                     _counter = delayBtwAttacks;
                 }
             }

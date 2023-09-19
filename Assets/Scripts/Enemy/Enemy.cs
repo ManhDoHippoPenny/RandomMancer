@@ -30,6 +30,7 @@ namespace Enemy
 
         private void Update()
         {
+            //Debug.Log(GetComponent<Rigidbody>().IsSleeping());
             Move();
             Rotate();
             if (CurrentPointPositionReached())

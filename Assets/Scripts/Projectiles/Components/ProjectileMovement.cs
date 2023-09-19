@@ -12,14 +12,15 @@ namespace DefaultNamespace.Projectiles.Components
         
         protected void MoveProjectile()
         {
+            if(!_enemyTarget.gameObject.activeInHierarchy) ObjectPooler.ReturnToPool(gameObject);
             transform.position = Vector2.MoveTowards(transform.position,
                 _enemyTarget.transform.position, _componentData._Speed * Time.deltaTime);
-            float distanceToTarget = (_enemyTarget.transform.position - transform.position).magnitude;
-            if (distanceToTarget < _componentData._MinDistanceToDamage)
-            {
-                //onEnemyHit?.Invoke();
-                ObjectPooler.ReturnToPool(gameObject);
-            }
+            // float distanceToTarget = (_enemyTarget.transform.position - transform.position).magnitude;
+            // if (distanceToTarget < _componentData._MinDistanceToDamage)
+            // {
+            //     //onEnemyHit?.Invoke();
+            //     ObjectPooler.ReturnToPool(gameObject);
+            // }
         }
 
         protected void RotateProjectile()
