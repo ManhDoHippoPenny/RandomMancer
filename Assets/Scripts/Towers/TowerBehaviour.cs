@@ -8,7 +8,7 @@ namespace DefaultNamespace.Towers
     public class TowerBehaviour : MonoBehaviour
     {
         public TowerInfor _towerInfor;
-        [SerializeField] private List<Enemy.Enemy> _enemies;
+        public List<Enemy.Enemy> _enemies;
 
         public Enemy.Enemy CurrentEnemyTarget;
         
@@ -43,23 +43,6 @@ namespace DefaultNamespace.Towers
             Vector3 targetPos = CurrentEnemyTarget.transform.position - transform.position;
             float angle = Vector3.SignedAngle(transform.up, targetPos, transform.forward);
             transform.Rotate(0f,0f,angle);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("Enemy"))
-            {
-                _enemies.Add(other.GetComponent<Enemy.Enemy>());
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            Enemy.Enemy enemy = other.GetComponent<Enemy.Enemy>();
-            if (other.CompareTag("Enemy") && _enemies.Contains(enemy))
-            {
-                _enemies.Remove(enemy);
-            }
         }
     }
 }

@@ -94,7 +94,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126228880862652}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.35594773
   m_Center: {x: 0, y: 2.7075154e-16, z: -0.14405242}
@@ -192,7 +192,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126229202281189}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.33256656
   m_Center: {x: 0, y: -6.03018e-16, z: 0.16743359}
@@ -213,6 +213,8 @@ GameObject:
   - component: {fileID: 2691126229517942752}
   - component: {fileID: 2691126229517942759}
   - component: {fileID: 2691126229517942753}
+  - component: {fileID: 1848811145}
+  - component: {fileID: 1848811146}
   m_Layer: 0
   m_Name: PrefabDice 1
   m_TagString: Untagged
@@ -229,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 2691126229517942760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2691126230633790478}
@@ -395,6 +397,8 @@ MonoBehaviour:
   multiply: 1
   _speed: 0
   speedBody: {x: 0, y: 0, z: 0}
+  _numberOnImpact: 5
+  _timeCalCol: 15
 --- !u!114 &2691126229517942753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +411,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd6810f27d440f9620da0a9c96b389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1848811145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691126229517942760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa7779d278048a5bdd874dc540d4dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topFace: 0
+  _faces: []
+--- !u!114 &1848811146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691126229517942760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca4e4a19e2b471ea884b33865a5c86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridManager: {fileID: 0}
+  result: {x: 0, y: 0}
 --- !u!1 &2691126230006951721
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +533,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126230006951721}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.3247999
   m_Center: {x: -7.1338894e-16, y: 0, z: -0.17520025}
@@ -599,7 +631,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126230027538392}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.38033387
   m_Center: {x: 0, y: 0, z: 0.11966613}
@@ -697,7 +729,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126230339584935}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0.000000029802322}
@@ -795,7 +827,7 @@ SphereCollider:
   m_GameObject: {fileID: 2691126230633790477}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.3397795
   m_Center: {x: 0, y: 0, z: -0.1602205}

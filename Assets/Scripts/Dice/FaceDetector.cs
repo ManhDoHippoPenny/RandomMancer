@@ -57,7 +57,7 @@ namespace DefaultNamespace
 
             for (int i = 0; i < _faces.Count; i++)
             {
-                if (_faces[i].position.z > lastYPosition)
+                if (_faces[i].position.z < lastYPosition)
                 {
                     lastYPosition = _faces[i].position.z;
                     topFace = i;
@@ -67,7 +67,6 @@ namespace DefaultNamespace
             Debug.Log($"Dice result {topFace}");
             
             OnDiceResult?.Invoke(_diceIndex,topFace);
-            Debug.Log(topFace);
             this.topFace = topFace;
             return ;
 

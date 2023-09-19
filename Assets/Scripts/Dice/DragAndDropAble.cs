@@ -32,7 +32,7 @@ namespace DefaultNamespace
             return hit.transform == transform;
         }
 
-        private Vector3 WorldPos
+        public Vector3 WorldPos
         {
             get
             {

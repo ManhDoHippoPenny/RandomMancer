@@ -40,7 +40,7 @@ namespace DefaultNamespace
                 //Debug.Log(temp);
                 //Debug.Log(new Vector3(FindClosestMultipleOf90(temp.x), FindClosestMultipleOf90(temp.y), temp.z));
                 transform.eulerAngles =
-                    new Vector3(FindClosestMultipleOf90(temp.x), FindClosestMultipleOf90(temp.y), temp.z);
+                    new Vector3(FindClosestMultipleOf90(temp.x), FindClosestMultipleOf90(temp.y), FindClosestMultipleOf90(temp.z));
                 _stopTheDice = false;
             }
         }

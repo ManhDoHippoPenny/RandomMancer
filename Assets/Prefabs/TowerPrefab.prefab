@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1664888534958224144}
   - component: {fileID: 1664888534958224145}
   - component: {fileID: 1664888534958224150}
-  - component: {fileID: 1664888534958224151}
   - component: {fileID: 1664888534958224148}
   - component: {fileID: 1664888534958224147}
   - component: {fileID: 1664888534958224146}
@@ -88,19 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1664888534958224151
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664888534958224149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 3.8715522
-  m_Center: {x: 0.021930933, y: 1.7925408, z: 0}
 --- !u!114 &1664888534958224148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpawnPosition: {fileID: 1664888535208086069}
-  delayBtwAttacks: 3
-  damage: 1
   _counter: 0
+  _tower: {fileID: 0}
 --- !u!114 &1664888534958224146
 MonoBehaviour:
   m_ObjectHideFlags: 0

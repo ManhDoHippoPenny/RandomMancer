@@ -62,6 +62,7 @@ namespace DefaultNamespace
 
         private void OnCollisionEnter(Collision collision)
         {
+            Debug.Log(collision.collider.name);
             if (collision.collider.gameObject.CompareTag("Wall"))
             {
                 _body.velocity = Vector3.Reflect(speedBody, collision.contacts[0].normal);

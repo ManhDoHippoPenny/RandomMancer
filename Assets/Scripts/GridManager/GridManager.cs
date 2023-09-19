@@ -8,7 +8,7 @@ namespace GridManager
         [SerializeField] private int _width, _height;
 
         [SerializeField] private Grid _tilePrefab;
-        [SerializeField] private GameObject _holder;
+        public GameObject _holder;
 
 
         private void Start()
