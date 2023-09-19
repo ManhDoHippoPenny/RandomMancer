@@ -16,7 +16,7 @@ namespace DefaultNamespace
             CurrentWave = 1;
         }
 
-        private void ReduceLives(Enemy.Enemy enemy)
+        private void ReduceLives()
         {
             TotalLives--;
             if (TotalLives <= 0)
@@ -36,16 +36,6 @@ namespace DefaultNamespace
         private void WaveComplete()
         {
             
-        }
-
-        private void OnEnable()
-        {
-            Enemy.Enemy.OnEndReached += ReduceLives;
-        }
-
-        private void OnDisable()
-        {
-            Enemy.Enemy.OnEndReached -= ReduceLives;
         }
     }
 }
