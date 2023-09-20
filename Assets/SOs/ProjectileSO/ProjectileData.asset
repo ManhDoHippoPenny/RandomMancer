@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ed510fbd9741f584cbef60bbbaebe2, type: 3}
+  m_Name: ProjectileData
+  m_EditorClassIdentifier: 
+  <_componentData>k__BackingField:
+  - rid: 6861564303354626048
+  - rid: 6861564303354626049
+  - rid: 6861564303354626050
+  references:
+    version: 2
+    RefIds:
+    - rid: 6861564303354626048
+      type: {class: BounceData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        name: BounceData
+        <_numberOfUnit>k__BackingField: 2
+        <_maxDistanceToBounce>k__BackingField: 2
+    - rid: 6861564303354626049
+      type: {class: DamageData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        <damage>k__BackingField: 1
+    - rid: 6861564303354626050
+      type: {class: MovementData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        name: MovementData
+        _MinDistanceToDamage: 1
+        _Speed: 7.5
