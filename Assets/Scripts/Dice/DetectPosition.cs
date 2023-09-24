@@ -7,9 +7,14 @@ namespace DefaultNamespace
     {
         [SerializeField] private GridManager.GridManager _gridManager;
         public Vector2 result;
-        private void Start()
+        private void OnEnable()
         {
             GetComponent<PhysicBaseMovement>()._velocityOnZero += GetPositionInGrid;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<PhysicBaseMovement>()._velocityOnZero -= GetPositionInGrid;
         }
 
         public void GetPositionInGrid()
