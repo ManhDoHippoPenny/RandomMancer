@@ -469,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2691126229517942752, guid: 062f6c7f262d2f34d8722858f243c655, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 2691126229517942758, guid: 062f6c7f262d2f34d8722858f243c655, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -574,6 +578,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 49058871, guid: b8f1e2a6a08cf3e44a821592e048890d, type: 3}
+      propertyPath: _bulletDataSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d5a62e13f3abd64883baad742496cc1, type: 2}
     - target: {fileID: 1408349670910818980, guid: b8f1e2a6a08cf3e44a821592e048890d, type: 3}
       propertyPath: m_Name
       value: PrefabProjectile
@@ -582,6 +590,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3100796402655801077, guid: b8f1e2a6a08cf3e44a821592e048890d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d5a62e13f3abd64883baad742496cc1, type: 2}
     - target: {fileID: 3397468323112451436, guid: b8f1e2a6a08cf3e44a821592e048890d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -845,7 +857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &765245365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,28 +1125,23 @@ PrefabInstance:
     - target: {fileID: 1664888534958224148, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
       propertyPath: _towerInfor
       value: 
-      objectReference: {fileID: 11400000, guid: 05aeb24d82f9b304dbb9f4350795cace, type: 2}
+      objectReference: {fileID: 11400000, guid: f98c12d0301a27b4aa91421de9157c62, type: 2}
     - target: {fileID: 1664888534958224149, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
       propertyPath: m_Name
       value: TowerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 1664888534958224149, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
---- !u!1 &1007499298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1664888534958224149, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
-  m_PrefabInstance: {fileID: 1007499297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1007499301 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1664888534958224148, guid: eab5f5ee653dcdc40bccf1f68b56dc72, type: 3}
   m_PrefabInstance: {fileID: 1007499297}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007499298}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31ae6cccbf824fd189324241d181a89f, type: 3}
@@ -1441,7 +1448,7 @@ MonoBehaviour:
   - {x: -5.582349, y: 2.3400748, z: -0.00047945976}
   - {x: -0.62026453, y: 2.3118815, z: -0.00047945976}
   - {x: 4.4546, y: 2.1709127, z: -0.00047945976}
-  - {x: 10.2343025, y: 0.33832413, z: -0.00047945976}
+  - {x: 8.626136, y: 0.21219319, z: 0}
 --- !u!4 &1458922421
 Transform:
   m_ObjectHideFlags: 0
@@ -1611,7 +1618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600067110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,8 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d979aca004449bca1b3267cee3912b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TowerPrefab: {fileID: 1007499298}
-  _holder: {fileID: 1066502575}
+  _pooler: {fileID: 0}
 --- !u!4 &1868710506
 Transform:
   m_ObjectHideFlags: 0

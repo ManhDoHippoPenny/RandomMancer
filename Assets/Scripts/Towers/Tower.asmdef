@@ -1,13 +1,10 @@
 {
-    "name": "Dice",
+    "name": "Tower",
     "rootNamespace": "",
     "references": [
-        "GUID:343deaaf83e0cee4ca978e7df0b80d21",
-        "GUID:2bafac87e7f4b9b418d9448d219b01ab",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:a11436d33e47d9644bafb426c28b44b0",
-        "GUID:57298fb1aaafa794d88aa80bb160d7d0",
-        "GUID:e5a0803154e549147bea656efddf9053"
+        "GUID:6ede5b67271376f4298834632f600331",
+        "GUID:4a2f2d8583cda1d4b8e271f90a9e9e21",
+        "GUID:57298fb1aaafa794d88aa80bb160d7d0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

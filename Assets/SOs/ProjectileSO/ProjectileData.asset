@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: ProjectileData
   m_EditorClassIdentifier: 
   <_componentData>k__BackingField:
-  - rid: 6861564303354626048
-  - rid: 6861564303354626049
-  - rid: 6861564303354626050
+  - rid: 8939690867711016960
+  - rid: 8939690867711016961
+  - rid: 8939690867711016962
   references:
     version: 2
     RefIds:
-    - rid: 6861564303354626048
-      type: {class: BounceData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+    - rid: 8939690867711016960
+      type: {class: BounceData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Projectile}
       data:
         name: BounceData
-        <_numberOfUnit>k__BackingField: 2
-        <_maxDistanceToBounce>k__BackingField: 2
-    - rid: 6861564303354626049
-      type: {class: DamageData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+        <_numberOfUnit>k__BackingField: 0
+        <_maxDistanceToBounce>k__BackingField: 0
+    - rid: 8939690867711016961
+      type: {class: DamageData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Projectile}
       data:
         name: DamageData
-        <damage>k__BackingField: 1
-    - rid: 6861564303354626050
-      type: {class: MovementData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Assembly-CSharp}
+        <damage>k__BackingField: 0
+    - rid: 8939690867711016962
+      type: {class: MovementData, ns: DefaultNamespace.Projectiles.Components.ComponentData, asm: Projectile}
       data:
         name: MovementData
-        _MinDistanceToDamage: 1
-        _Speed: 7.5
+        _MinDistanceToDamage: 0
+        _Speed: 5
