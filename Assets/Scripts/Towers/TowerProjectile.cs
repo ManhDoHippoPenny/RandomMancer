@@ -42,7 +42,6 @@ namespace DefaultNamespace.Towers
                     _tower.CurrentEnemyTarget._enemyHealth.currentHealth > 0f)
                 {
                     _currentProjectile.transform.parent = null;
-                    //_currentProjectile.GetComponent<ProjectileMovement>().SetEnemy(_tower.CurrentEnemyTarget);
                     _currentProjectile = null;
                     _counter = delayBtwAttacks;
                 }

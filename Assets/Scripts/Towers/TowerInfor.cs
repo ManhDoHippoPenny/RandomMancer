@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DefaultNamespace.Projectiles;
 using Projectiles;
 using UnityEngine;
 
 namespace DefaultNamespace.ScriptableObjects
 {
+    [Serializable]
     [CreateAssetMenu(fileName = "TowerInformation", menuName = "Tower Information",order = 0)]
     public class TowerInfor : ScriptableObject
     {

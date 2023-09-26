@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
@@ -10,7 +11,6 @@ namespace DefaultNamespace
         [SerializeField] private float _speed;
         [SerializeField] private Vector3 speedBody;
         [SerializeField] private int _numberOnImpact;
-
 
         private float counter;
         [SerializeField] private float _timeCalCol;
@@ -34,25 +34,23 @@ namespace DefaultNamespace
             _velocityOnZero -= StopTheDice;
         }
 
-        public void ApplyForce(Vector2 dir, float speed)
+        public void ApplyForce(Vector3 dir, float speed)
         {
-            this._speed = speed * multiply;
+            _speed = speed * multiply;
             _body.velocity = dir * _speed;
+            //Debug.Log(_body.velocity + " " + dir);
+            _body.useGravity = true;
+        }
+
+        private void Start()
+        {
+            _body.AddTorque(30,0,30);
         }
 
         private void Update()
         {
-            counter -= Time.deltaTime;
-            if (counter < 0)
-            {
-                _numberOnImpact--;
-                counter = _timeCalCol;
-            }
-            if (_numberOnImpact == 0)
-            {
-                _velocityOnZero?.Invoke();
-            }
             speedBody = _body.velocity;
+            if(speedBody == Vector3.zero) _velocityOnZero?.Invoke();
         }
 
         public void StopTheDice()
@@ -60,15 +58,13 @@ namespace DefaultNamespace
             _body.velocity = Vector3.zero;
         }
 
+
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log(collision.collider.name);
-            if (collision.collider.gameObject.CompareTag("Wall"))
+            if (collision.collider.CompareTag("Wall"))
             {
-                _body.velocity = Vector3.Reflect(speedBody, collision.contacts[0].normal);
                 _numberOnImpact--;
-                counter = _timeCalCol;
-            } 
+            }
         }
     }
 }

@@ -9,8 +9,7 @@ namespace GridManager
 
         [SerializeField] private Grid _tilePrefab;
         public GameObject _holder;
-
-
+        
         private void Start()
         {
             GenerateGrid();
@@ -23,7 +22,7 @@ namespace GridManager
                 for (int j = 0; j < _height; ++j)
                 {
                     var spawnedTile = Instantiate(_tilePrefab, new Vector3(i * _tilePrefab.transform.localScale.x,
-                        j * _tilePrefab.transform.localScale.y) + _holder.transform.position, Quaternion.identity);
+                        _tilePrefab.transform.localScale.y,j * _tilePrefab.transform.localScale.z) + _holder.transform.position, Quaternion.identity);
                     //Debug.Log(spawnedTile.transform.position);
                     spawnedTile.transform.gameObject.SetActive(true);
                     spawnedTile.name = $"Tile {i} {j}";

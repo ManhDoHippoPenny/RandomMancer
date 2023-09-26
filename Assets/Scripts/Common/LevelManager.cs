@@ -6,6 +6,7 @@ namespace DefaultNamespace
     public class LevelManager : Singleton<LevelManager>
     {
         [SerializeField] private int lives = 10;
+        [SerializeField] public int _width, _height;
         
         public int TotalLives { get; set; }
         public int CurrentWave { get; set; }

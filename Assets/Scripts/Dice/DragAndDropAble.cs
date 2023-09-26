@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,7 +29,7 @@ namespace DefaultNamespace
             Ray ray = _camera.ScreenPointToRay(curScreenPos);
             RaycastHit hit;
             Physics.Raycast(ray.origin, ray.direction,out hit,15f);
-            //Debug.Log(hit.transform);
+            Debug.Log(hit.transform);
             return hit.transform == transform;
         }
 
@@ -53,13 +54,18 @@ namespace DefaultNamespace
             };
             press.performed += _ =>
             {
-                if(isClickedOn()) StartCoroutine(Drag());
+                //Debug.Log(isClickedOn());
+                if (isClickedOn())
+                {
+                    StartCoroutine(Drag());
+                }
             };
             press.canceled += _ =>
             {
                 if (isDragging)
                 {
                     isDragging = false;
+                    //_dir = new Vector3(_dir.x, _dir.z, _dir.y);
                     onRelaseEvent?.Invoke();
                     //_movement.ApplyForce(_dir,_speed);
                 }
@@ -82,5 +88,6 @@ namespace DefaultNamespace
                 yield return null;
             }
         }
+
     }
 }

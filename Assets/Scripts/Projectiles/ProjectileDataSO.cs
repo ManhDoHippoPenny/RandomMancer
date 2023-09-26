@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Projectiles
 {
+    [Serializable]
     [CreateAssetMenu(fileName = "ProjectileData", menuName = "", order = 0)]
     public class ProjectileDataSO : ScriptableObject
     {
