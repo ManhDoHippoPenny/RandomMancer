@@ -38,13 +38,7 @@ namespace DefaultNamespace.Towers
             _counter -= Time.deltaTime;
             if (_counter < 0)
             {
-                if (_tower.CurrentEnemyTarget != null && _currentProjectile != null &&
-                    _tower.CurrentEnemyTarget._enemyHealth.currentHealth > 0f)
-                {
-                    _currentProjectile.transform.parent = null;
-                    _currentProjectile = null;
-                    _counter = delayBtwAttacks;
-                }
+                FireProjectile();
             }
 
         }
@@ -53,17 +47,24 @@ namespace DefaultNamespace.Towers
         {
             GameObject newInstance = _pooler.GetInstanceFromPool();
             newInstance.transform.localPosition = projectileSpawnPosition.position;
-            newInstance.transform.SetParent(projectileSpawnPosition);
+            //newInstance.transform.SetParent(projectileSpawnPosition);
             
             _currentProjectile = newInstance.GetComponent<Projectile>();
-            //_currentProjectile._tower = this;
             _currentProjectile.ResetProjectile();
             newInstance.SetActive(true);
         }
 
-        private void FireProjectile(Enemy.Enemy _enemy)
+        private void FireProjectile()
         {
-            _currentProjectile.transform.position = projectileSpawnPosition.position;
+            if (_tower.CurrentEnemyTarget != null && _currentProjectile != null)
+            {
+                Debug.Log("Fire " + _tower.CurrentEnemyTarget);
+                _currentProjectile.SetTarget(_tower.CurrentEnemyTarget);
+                //_currentProjectile.transform.SetParent(null);
+                _currentProjectile = null;
+                _counter = delayBtwAttacks;
+            }
+            // _currentProjectile.transform.position = projectileSpawnPosition.position;
         }
 
         private bool IsTurretEmpty()

@@ -42,7 +42,7 @@ namespace DefaultNamespace.Towers
             }
             Vector3 targetPos = CurrentEnemyTarget.transform.position - transform.position;
             float angle = Vector3.SignedAngle(transform.up, targetPos, transform.forward);
-            transform.Rotate(0f,0f,angle);
+            transform.Rotate(0f,angle,0f);
         }
     }
 }

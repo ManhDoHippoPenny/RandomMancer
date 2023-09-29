@@ -8,6 +8,7 @@ namespace DefaultNamespace.Towers
         
         private void OnTriggerEnter(Collider other)
         {
+            //Debug.Log("Enemy enter tower");
             if (other.gameObject.CompareTag("Enemy"))
             {
                 _towerBehaviour._enemies.Add(other.GetComponent<Enemy.Enemy>());
@@ -20,6 +21,7 @@ namespace DefaultNamespace.Towers
             if (other.CompareTag("Enemy") && _towerBehaviour._enemies.Contains(enemy))
             {
                 _towerBehaviour._enemies.Remove(enemy);
+                Debug.Log("Enemy exit tower");
             }
         }
     }

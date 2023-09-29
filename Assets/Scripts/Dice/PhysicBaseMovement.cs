@@ -13,6 +13,7 @@ namespace DefaultNamespace
         [SerializeField] private int _numberOnImpact;
 
         private float counter;
+        private bool _invoked = false;
         [SerializeField] private float _timeCalCol;
         public delegate void VelocityOnZero();
 
@@ -27,6 +28,7 @@ namespace DefaultNamespace
         private void OnEnable()
         {
             _velocityOnZero += StopTheDice;
+            _invoked = true;
         }
 
         private void OnDisable()
@@ -50,7 +52,11 @@ namespace DefaultNamespace
         private void Update()
         {
             speedBody = _body.velocity;
-            if(speedBody == Vector3.zero) _velocityOnZero?.Invoke();
+            if(_body.velocity == Vector3.zero && _invoked && _body.angularVelocity == Vector3.zero)
+            {
+                _velocityOnZero?.Invoke();
+                _invoked = false;
+            }
         }
 
         public void StopTheDice()

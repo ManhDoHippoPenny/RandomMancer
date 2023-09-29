@@ -7,6 +7,9 @@ namespace DefaultNamespace
     {
         [SerializeField] private int lives = 10;
         [SerializeField] public int _width, _height;
+        [SerializeField] public float _size;
+        [SerializeField] public Transform _root;
+        [SerializeField] private Transform _prefab;
         
         public int TotalLives { get; set; }
         public int CurrentWave { get; set; }
@@ -15,7 +18,9 @@ namespace DefaultNamespace
         {
             TotalLives = lives;
             CurrentWave = 1;
+            _size = _prefab.GetComponent<MeshRenderer>().bounds.size.x;
         }
+        
 
         private void ReduceLives()
         {

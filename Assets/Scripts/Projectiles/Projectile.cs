@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace.Projectiles.Components;
 using Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,6 +25,15 @@ namespace DefaultNamespace.Projectiles
         public void ResetProjectile()
         {
             GetComponent<ProjectileGenerator>().ResetProjectile();
+        }
+
+        public void SetTarget(Enemy.Enemy enemy)
+        {
+            var movement = GetComponent<ProjectileMovement>();
+            if (movement != null)
+            {
+                movement.SetEnemy(enemy);
+            }
         }
     }
 }

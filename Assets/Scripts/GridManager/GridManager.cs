@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace GridManager
 {
-    public class GridManager : MonoBehaviour
+    public class GridManager : Singleton<GridManager>
     {
         [SerializeField] private int _width, _height;
 
         [SerializeField] private Grid _tilePrefab;
         public GameObject _holder;
+        public Dictionary<Vector2, Grid> _mapGrids = new Dictionary<Vector2, Grid>();
         
         private void Start()
         {
@@ -27,6 +30,7 @@ namespace GridManager
                     spawnedTile.transform.gameObject.SetActive(true);
                     spawnedTile.name = $"Tile {i} {j}";
                     spawnedTile.transform.SetParent(_holder.transform);
+                    _mapGrids.Add(new Vector2(i+1,j+1),spawnedTile);
                     bool isOffset = (i % 2 == 0 && j % 2 != 0) || (i % 2 != 0 && j % 2 == 0);
                     spawnedTile.Init(isOffset); 
                 }

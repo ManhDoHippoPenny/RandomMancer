@@ -10,7 +10,7 @@ namespace DefaultNamespace.Projectiles.Components
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.gameObject.GetComponent<Enemy.EnemyHealth>().DealDamage(_componentData.damage);
+                collision.gameObject.GetComponent<Enemy.EnemyHealth>().Deal(_componentData.damage);
             }
         }
         

@@ -6,9 +6,10 @@ namespace DefaultNamespace
 {
     public class RespawnOnResult : DiceResultAction<TowerInfor>
     {
-        public override void OnResult()
+        public override void OnResult(Vector3 pos)
         {
-            var tower = TowerSpawner.Instance.Spawn(this.transform.position);
+            Debug.Log("Spawn Tower " + pos);
+            var tower = TowerSpawner.Instance.Spawn(pos);
             tower.GetComponent<TowerBehaviour>()._towerInfor = _dataForAction;
         }
     }

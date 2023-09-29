@@ -5,24 +5,14 @@ namespace DefaultNamespace
 {
     public class DetectPosition : MonoBehaviour
     {
-        [SerializeField] private GridManager.GridManager _gridManager;
         public Vector2 result;
-        private void OnEnable()
-        {
-            GetComponent<PhysicBaseMovement>()._velocityOnZero += GetPositionInGrid;
-        }
 
-        private void OnDisable()
+        public Vector2 GetPositionInGrid()
         {
-            GetComponent<PhysicBaseMovement>()._velocityOnZero -= GetPositionInGrid;
-        }
-
-        public void GetPositionInGrid()
-        {
-            Vector2 temp = transform.position - _gridManager._holder.transform.position + new Vector3(1.5f,1.5f,0f);
-            //Debug.Log((Vector2) GetComponent<DragAndDropAble>().WorldPos + " " + (Vector2)_gridManager._holder.transform.position);
-            Debug.Log(temp);
-            result = new Vector2(Mathf.RoundToInt(temp.x), Mathf.RoundToInt(temp.y));
+            Vector3 temp = (transform.position - LevelManager.Instance._root.position) / LevelManager.Instance._size;
+            result = new Vector2(Mathf.RoundToInt(temp.x + 0.5f), Mathf.RoundToInt(temp.z + 0.5f));
+            Debug.Log(result);
+            return result;
         }
     }
 }

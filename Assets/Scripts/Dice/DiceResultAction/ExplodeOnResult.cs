@@ -7,7 +7,7 @@ namespace DefaultNamespace
     {
         [SerializeField] private float _radius;
         
-        public override void OnResult()
+        public override void OnResult(Vector3 pos)
         {
             ExplodeSpawner.Instance.Spawn(this.transform.position,_radius);
         }

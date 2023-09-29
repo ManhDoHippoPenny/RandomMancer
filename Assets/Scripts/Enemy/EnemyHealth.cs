@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Enemy
 {
-    public class EnemyHealth : MonoBehaviour
+    public class EnemyHealth : MonoBehaviour, IDamagable
     {
         public static UnityAction<Enemy> OnEnemyKilled;
         public static UnityAction<Enemy> OnEnemyHit;
@@ -26,23 +26,6 @@ namespace Enemy
             _enemy = GetComponent<Enemy>();
         }
 
-        private void Update()
-        {
-            //_healthBar.fillAmount = Mathf.Lerp(_healthBar.fillAmount, currentHealth / maxHealth, Time.deltaTime * 10f);
-        }
-
-        public void DealDamage(float damageReceive)
-        {
-            currentHealth -= damageReceive;
-            Debug.Log(currentHealth + "Health");
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                Die();
-            }
-            else OnEnemyHit?.Invoke(_enemy);
-        }
-
         public void Die()
         {
             ResetHealth();
@@ -52,6 +35,18 @@ namespace Enemy
         public void ResetHealth()
         {
             currentHealth = initialHealth;
+        }
+
+        public void Deal(int dame)
+        {
+            currentHealth -= dame;
+            Debug.Log(currentHealth + "Health");
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Die();
+            }
+            else OnEnemyHit?.Invoke(_enemy);
         }
     }
 }

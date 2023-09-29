@@ -5,7 +5,7 @@ namespace DefaultNamespace
 {
     public abstract class DiceResultAction : MonoBehaviour
     {
-        public virtual void OnResult()
+        public virtual void OnResult(Vector3 pos)
         {
             
         }

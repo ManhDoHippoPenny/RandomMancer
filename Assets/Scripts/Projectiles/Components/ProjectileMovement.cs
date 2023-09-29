@@ -13,7 +13,7 @@ namespace DefaultNamespace.Projectiles.Components
         protected void MoveProjectile()
         {
             if(!_enemyTarget.gameObject.activeInHierarchy) ObjectPooler.ReturnToPool(gameObject);
-            transform.position = Vector2.MoveTowards(transform.position,
+            transform.position = Vector3.MoveTowards(transform.position,
                 _enemyTarget.transform.position, _componentData._Speed * Time.deltaTime);
         }
 
@@ -21,6 +21,7 @@ namespace DefaultNamespace.Projectiles.Components
         {
             Vector3 enemyPos = _enemyTarget.transform.position - transform.position;
             float angle = Vector3.SignedAngle(transform.up, enemyPos, transform.forward);
+            //Debug.Log(angle);
             transform.Rotate(0f,0f,angle);
         }
 
